@@ -1,0 +1,20 @@
+dist: bionic
+
+language: php
+
+php:
+  - 7.2
+  - 7.3
+  - 7.4
+
+os: linux
+
+before_script:
+  - composer install
+  - cp .env.testing .env
+  - php artisan key:generate
+  - touch database/database.sqlite
+  - php artisan migrate
+
+script:
+  - vendor/bin/phpunit
