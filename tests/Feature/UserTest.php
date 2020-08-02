@@ -41,6 +41,8 @@ class UserTest extends TestCase
 
     public function testUserLogin()
     {
+        $this->withoutExceptionHandling();
+
         $name = $this->faker->name();
         $email = $this->faker->email();
 
